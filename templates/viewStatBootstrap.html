@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>$title</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Brand', 'Price'],
+          // for ($item in $products){
+          //   [$item.getBrand(), $item.getPrice()];
+          // }; 
+
+          ['Olay', 30.5],
+          ['Heartland Meadow', 3.6],
+          ['Maille ', 46.0],
+          ['Pampers', 34.4],
+          ['Bell-view', 51.89],
+          ['Olay', 8.90],
+          ['East Coast Fresh', 69.53],
+          ['Peeps', 101.84]]);
+
+        var options = {
+          title: 'Brand vs Price',
+          legend: { position: 'none' },
+        };
+
+        var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  <style>
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .row.content {height: 450px}
+
+    .sidenav {
+      padding-top: 20px;
+      background-color: grey;
+      height: 100%;
+    }
+
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    h1{
+      font-family: 'Poppins';
+    }
+    h3{
+      font-family: 'Poppins';
+    }
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: 'Poppins';
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+    .styled-table th {
+        background-color: grey;
+        color: #ffffff;
+        text-align: center;
+        font-family: 'Poppins';
+        }
+    .styled-table td {
+        padding: 12px 15px;
+        }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/landingpage">QUICKSHOP</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="/landingpage">Home</a></li>
+          <li><a href="/userinfo">User Profile</a></li>
+          <li><a href="/userhistory">View History</a></li>
+          <li class="active"><a href="/viewstat">View Statistics</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-8 text-left">
+      <h1>Hey, this is your monthly Spending Statistics!</h1>
+      <div id="chart_div" style="width: 900px; height: 500px;"></div>
+      <div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="container-fluid text-center">
+  <p>Last Login: $lastlogin</p>
+</footer>
+</body>
+</html>
